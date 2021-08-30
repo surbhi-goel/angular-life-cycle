@@ -11,6 +11,7 @@ export class ChildComponentComponent implements OnInit, OnChanges,
   AfterViewChecked, OnDestroy {
 
   @Input() input_val: String = 'Default Value';
+  timer_interval: any;
 
   // constructor first called in the life-cycle
   constructor() {
@@ -83,6 +84,15 @@ export class ChildComponentComponent implements OnInit, OnChanges,
    */
   ngOnDestroy() {
     console.log('ngOnDestroy called ');
+    clearInterval(this.timer_interval);
+    //comment above line and see the difference
+  }
+
+  startTimer() {
+    let timer = 1;
+    this.timer_interval = setInterval(() => {
+      console.log("timer " + timer++);
+    }, 1000);
   }
 
 }
