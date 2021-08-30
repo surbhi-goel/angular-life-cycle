@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponentComponent implements OnInit {
 
+  input_val: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(val: any) {
+    this.input_val = val.value;
   }
 
 }
