@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildComponentComponent implements OnInit {
 
-  constructor() { }
+  // constructor first called in the life-cycle
+  constructor() {
+    console.log('constructor called ');
+  }
 
   ngOnInit(): void {
+    console.log('ngOnInit called ');
   }
 
 }
