@@ -9,6 +9,7 @@ export class ParentComponentComponent implements OnInit {
 
   input_val: string = '';
   content_val: string = '';
+  is_child_view: boolean = true;
 
   constructor() { }
 
@@ -21,6 +22,10 @@ export class ParentComponentComponent implements OnInit {
 
   onContentChange(val: any) {
     this.content_val = val.value;
+  }
+
+  toggleChildComponent() {
+    this.is_child_view = !this.is_child_view;
   }
 
 }

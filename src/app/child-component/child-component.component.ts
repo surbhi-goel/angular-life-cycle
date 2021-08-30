@@ -1,3 +1,4 @@
+import { OnDestroy } from '@angular/core';
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 })
 export class ChildComponentComponent implements OnInit, OnChanges,
   DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit,
-  AfterViewChecked {
+  AfterViewChecked, OnDestroy {
 
   @Input() input_val: String = 'Default Value';
 
@@ -72,6 +73,16 @@ export class ChildComponentComponent implements OnInit, OnChanges,
   // call after ngAfterContentChecked for any change
   ngAfterViewChecked() {
     console.log('ngAfterViewChecked called ');
+  }
+
+  // ngOnDestroy called when component destroy
+  /**
+   * used to terminate any timeout, interval function
+   * on component destroy
+   * try to click on toggle button and check console
+   */
+  ngOnDestroy() {
+    console.log('ngOnDestroy called ');
   }
 
 }
