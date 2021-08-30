@@ -1,11 +1,12 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-child-component',
   templateUrl: './child-component.component.html',
   styleUrls: ['./child-component.component.scss']
 })
-export class ChildComponentComponent implements OnInit, OnChanges {
+export class ChildComponentComponent implements OnInit, OnChanges,
+  DoCheck {
 
   @Input() input_val: String = 'Default Value';
 
@@ -24,8 +25,24 @@ export class ChildComponentComponent implements OnInit, OnChanges {
     console.log('ngOnChanges called ', changes);
   }
 
+  // ngOnInit called after ngOnChanges
   ngOnInit(): void {
     console.log('ngOnInit called ');
+  }
+
+  // ngDoCheck called after ngOnInit
+  // ngDoCheck called whenever ngOnChanges called
+  // ngDoCheck called whenever there is any change in component
+  /**
+   * try to change the Input value and check console
+   * try to click on button
+   */
+  ngDoCheck() {
+    console.log('ngDoCheck called ');
+  }
+
+  btnClick() {
+    console.log('btnClick');
   }
 
 }
