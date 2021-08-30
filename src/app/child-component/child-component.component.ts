@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-child-component',
@@ -6,7 +6,7 @@ import { AfterContentInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleC
   styleUrls: ['./child-component.component.scss']
 })
 export class ChildComponentComponent implements OnInit, OnChanges,
-  DoCheck, AfterContentInit {
+  DoCheck, AfterContentInit, AfterContentChecked {
 
   @Input() input_val: String = 'Default Value';
 
@@ -48,6 +48,16 @@ export class ChildComponentComponent implements OnInit, OnChanges,
   // ngAfterContentInit called after ngDoCheck
   ngAfterContentInit() {
     console.log('ngAfterContentInit called ');
+  }
+
+  // ngAfterContentChecked called after ngAfterContentInit
+  // ngAfterContentChecked called if there is any change in ng-content
+  // after any change, called after doCheck
+  /**
+   * try to change the Content value and check console
+   */
+  ngAfterContentChecked() {
+    console.log('ngAfterContentChecked called ');
   }
 
 }

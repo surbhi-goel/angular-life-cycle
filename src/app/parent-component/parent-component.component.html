@@ -3,8 +3,9 @@
 <div>
     <input type="text" placeholder="Enter input value" #val>
     <button (click)="onSubmit(val)">Submit</button>
+    <button (click)="onContentChange(val)">Change Content</button>
 </div>
 
 <hr />
 
-<app-child-component [input_val]="input_val"></app-child-component>
+<app-child-component [input_val]="input_val">{{content_val}}</app-child-component>

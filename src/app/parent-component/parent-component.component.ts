@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ParentComponentComponent implements OnInit {
 
   input_val: string = '';
+  content_val: string = '';
 
   constructor() { }
 
@@ -16,6 +17,10 @@ export class ParentComponentComponent implements OnInit {
 
   onSubmit(val: any) {
     this.input_val = val.value;
+  }
+
+  onContentChange(val: any) {
+    this.content_val = val.value;
   }
 
 }
